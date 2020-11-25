@@ -1,17 +1,24 @@
-FROM hdlc/nextpnr
-
-COPY --from=hdlc/pkg:ghdl-yosys-plugin /ghdl /
-COPY --from=hdlc/pkg:yosys /yosys /
+FROM hdlc/ghdl:yosys AS base
 
 RUN apt-get update -qq \
  && DEBIAN_FRONTEND=noninteractive apt-get -y install --no-install-recommends \
-    libffi-dev \
-    libgnat-8 \
-    libreadline-dev \
-    tcl-dev \
-    graphviz \
-    xdot \
+    libboost-all-dev \
+    libomp5-7 \
+    make \
  && apt-get autoclean && apt-get clean && apt-get -y autoremove \
- && rm -rf /var/lib/apt/lists \
- && yosys-config --exec mkdir -p --datdir/plugins \
- && yosys-config --exec ln -s /usr/local/lib/ghdl_yosys.so --datdir/plugins/ghdl.so
+ && rm -rf /var/lib/apt/lists
+
+#---
+
+FROM base AS ice40
+
+COPY --from=hdlc/pkg:nextpnr-ice40 /nextpnr /
+COPY --from=hdlc/pkg:icestorm /iceprog /
+COPY --from=hdlc/pkg:icestorm /icestorm /
+
+#---
+
+FROM base AS ecp5
+
+COPY --from=hdlc/pkg:nextpnr-ecp5 /nextpnr /
+COPY --from=hdlc/pkg:prjtrellis /prjtrellis /
