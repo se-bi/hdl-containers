@@ -73,8 +73,18 @@ COPY --from=build-ice40 /opt/nextpnr /
 
 #---
 
+FROM scratch AS pkg-ice40
+COPY --from=build-ice40 /opt/nextpnr /nextpnr
+
+#---
+
 FROM base AS ecp5
 COPY --from=build-ecp5 /opt/nextpnr /
+
+#---
+
+FROM scratch AS pkg-ecp5
+COPY --from=build-ecp5 /opt/nextpnr /nextpnr
 
 #---
 

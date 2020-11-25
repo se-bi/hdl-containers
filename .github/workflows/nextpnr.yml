@@ -25,6 +25,8 @@ jobs:
 
     - name: Build images
       run: |
+        docker build -t hdlc/pkg:nextpnr-ice40 --target=pkg-ice40 - < nextpnr.dockerfile
+        docker build -t hdlc/pkg:nextpnr-ecp5 --target=pkg-ecp5 - < nextpnr.dockerfile
         docker build -t hdlc/nextpnr:ice40 --target=ice40 - < nextpnr.dockerfile
         docker build -t hdlc/nextpnr:ecp5 --target=ecp5 - < nextpnr.dockerfile
         docker build -t hdlc/nextpnr - < nextpnr.dockerfile
@@ -46,6 +48,8 @@ jobs:
 
     - name: Deploy to DockerHub
       run: |
+        docker push hdlc/pkg:nextpnr-ice40
+        docker push hdlc/pkg:nextpnr-ecp5
         docker push hdlc/nextpnr:ice40
         docker push hdlc/nextpnr:ecp5
         docker push hdlc/nextpnr
