@@ -17,21 +17,7 @@ jobs:
       with:
         submodules: recursive
 
-    - name: Login to DockerHub
-      uses: docker/login-action@v1
-      with:
-        username: ${{ secrets.DOCKER_USER }}
-        password: ${{ secrets.DOCKER_PASS }}
-
-    - name: Build images
-      run: |
-        docker build -t hdlc/prog - < prog.dockerfile
-
     - run: docker run --rm -v $(pwd):/wrk hdlc/prog /wrk/test/prog.sh
       #uses: docker://hdlc/prog
       #with:
       #  args: ./test/prog.sh
-
-    - name: Deploy to DockerHub
-      run: |
-        docker push hdlc/prog

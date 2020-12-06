@@ -23,7 +23,6 @@ jobs:
 
     - name: Build images
       run: |
-        docker build -t hdlc/build:base  --target base  - < base.dockerfile
         docker build -t se0bi/hdlc-build:build --target build - < base.dockerfile
         docker build -t se0bi/hdlc-build:dev - < base.dockerfile
 
@@ -44,6 +43,5 @@ jobs:
 
     - name: Deploy to DockerHub
       run: |
-        docker push hdlc/build:base
         docker push se0bi/hdlc-build:build
         docker push se0bi/hdlc-build:dev

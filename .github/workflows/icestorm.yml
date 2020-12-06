@@ -17,17 +17,6 @@ jobs:
       with:
         submodules: recursive
 
-    - name: Login to DockerHub
-      uses: docker/login-action@v1
-      with:
-        username: ${{ secrets.DOCKER_USER }}
-        password: ${{ secrets.DOCKER_PASS }}
-
-    - name: Build images
-      run: |
-        docker build -t hdlc/pkg:icestorm --target=pkg - < icestorm.dockerfile
-        docker build -t hdlc/icestorm - < icestorm.dockerfile
-
     - name: TODO test hdlc/pkg:icestorm
       run: docker run --rm -v $(pwd):/wrk alpine /wrk/test/todo.sh
       #uses: docker://alpine
@@ -38,8 +27,3 @@ jobs:
       #uses: docker://hdlc/icestorm
       #with:
       #  args: ./test/icestorm.sh
-
-    - name: Deploy to DockerHub
-      run: |
-        docker push hdlc/pkg:icestorm
-        docker push hdlc/icestorm

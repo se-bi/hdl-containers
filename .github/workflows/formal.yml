@@ -17,21 +17,7 @@ jobs:
       with:
         submodules: recursive
 
-    - name: Login to DockerHub
-      uses: docker/login-action@v1
-      with:
-        username: ${{ secrets.DOCKER_USER }}
-        password: ${{ secrets.DOCKER_PASS }}
-
-    - name: Build images
-      run: |
-        docker build -t hdlc/formal - < formal.dockerfile
-
     - run: docker run --rm -v $(pwd):/wrk hdlc/formal /wrk/test/formal.sh
       #uses: docker://hdlc/formal
       #with:
       #  args: ./test/formal.sh
-
-    - name: Deploy to DockerHub
-      run: |
-        docker push hdlc/formal
