@@ -12,7 +12,7 @@ RUN apt-get update -qq \
 
 FROM base AS ice40
 
-COPY --from=hdlc/pkg:nextpnr-ice40 /nextpnr /
+COPY --from=se0bi/hdlc-pkg:nextpnr-ice40 /nextpnr /
 COPY --from=hdlc/pkg:icestorm /iceprog /
 COPY --from=hdlc/pkg:icestorm /icestorm /
 
@@ -20,5 +20,5 @@ COPY --from=hdlc/pkg:icestorm /icestorm /
 
 FROM base AS ecp5
 
-COPY --from=hdlc/pkg:nextpnr-ecp5 /nextpnr /
+COPY --from=se0bi/hdlc-pkg:nextpnr-ecp5 /nextpnr /
 COPY --from=hdlc/pkg:prjtrellis /prjtrellis /

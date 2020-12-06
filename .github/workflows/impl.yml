@@ -25,20 +25,20 @@ jobs:
 
     - name: Build images
       run: |
-        docker build -t hdlc/impl:ice40 --target=ice40 - < impl.dockerfile
-        docker build -t hdlc/impl:ecp5 --target=ecp5 - < impl.dockerfile
+        docker build -t se0bi/hdlc-impl:ice40 --target=ice40 - < impl.dockerfile
+        docker build -t se0bi/hdlc-impl:ecp5 --target=ecp5 - < impl.dockerfile
 
-    - run: docker run --rm -v $(pwd):/wrk hdlc/impl:ecp5 /wrk/test/impl--ecp5.sh
+    - run: docker run --rm -v $(pwd):/wrk se0bi/hdlc-impl:ecp5 /wrk/test/impl--ecp5.sh
       #uses: docker://hdlc/impl:ecp5
       #with:
       #  args: ./test/impl--ecp5.sh
 
-    - run: docker run --rm -v $(pwd):/wrk hdlc/impl:ice40 /wrk/test/impl--ice40.sh
+    - run: docker run --rm -v $(pwd):/wrk se0bi/hdlc-impl:ice40 /wrk/test/impl--ice40.sh
       #uses: docker://hdlc/impl:ice40
       #with:
       #  args: ./test/impl--ice40.sh
 
     - name: Deploy to DockerHub
       run: |
-        docker push hdlc/impl:ice40
-        docker push hdlc/impl:ecp5
+        docker push se0bi/hdlc-impl:ice40
+        docker push se0bi/hdlc-impl:ecp5

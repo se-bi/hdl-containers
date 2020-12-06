@@ -25,31 +25,31 @@ jobs:
 
     - name: Build images
       run: |
-        docker build -t hdlc/pkg:nextpnr-ice40 --target=pkg-ice40 - < nextpnr.dockerfile
-        docker build -t hdlc/pkg:nextpnr-ecp5 --target=pkg-ecp5 - < nextpnr.dockerfile
-        docker build -t hdlc/nextpnr:ice40 --target=ice40 - < nextpnr.dockerfile
-        docker build -t hdlc/nextpnr:ecp5 --target=ecp5 - < nextpnr.dockerfile
-        docker build -t hdlc/nextpnr - < nextpnr.dockerfile
+        docker build -t se0bi/hdlc-pkg:nextpnr-ice40 --target=pkg-ice40 - < nextpnr.dockerfile
+        docker build -t se0bi/hdlc-pkg:nextpnr-ecp5 --target=pkg-ecp5 - < nextpnr.dockerfile
+        docker build -t se0bi/hdlc-nextpnr:ice40 --target=ice40 - < nextpnr.dockerfile
+        docker build -t se0bi/hdlc-nextpnr:ecp5 --target=ecp5 - < nextpnr.dockerfile
+        docker build -t se0bi/hdlc-nextpnr - < nextpnr.dockerfile
 
-    - run: docker run --rm -v $(pwd):/wrk hdlc/nextpnr:ice40 /wrk/test/nextpnr--ice40.sh
+    - run: docker run --rm -v $(pwd):/wrk se0bi/hdlc-nextpnr:ice40 /wrk/test/nextpnr--ice40.sh
       #uses: docker://hdlc/nextpnr:ice40
       #with:
       #  args: ./test/nextpnr--ice40.sh
 
-    - run: docker run --rm -v $(pwd):/wrk hdlc/nextpnr:ecp5 /wrk/test/nextpnr--ecp5.sh
+    - run: docker run --rm -v $(pwd):/wrk se0bi/hdlc-nextpnr:ecp5 /wrk/test/nextpnr--ecp5.sh
       #uses: docker://hdlc/nextpnr:ecp5
       #with:
       #  args: ./test/nextpnr--ecp5.sh
 
-    - run: docker run --rm -v $(pwd):/wrk hdlc/nextpnr /wrk/test/nextpnr.sh
+    - run: docker run --rm -v $(pwd):/wrk se0bi/hdlc-nextpnr /wrk/test/nextpnr.sh
       #uses: docker://hdlc/nextpnr
       #with:
       #  args: ./test/nextpnr.sh
 
     - name: Deploy to DockerHub
       run: |
-        docker push hdlc/pkg:nextpnr-ice40
-        docker push hdlc/pkg:nextpnr-ecp5
-        docker push hdlc/nextpnr:ice40
-        docker push hdlc/nextpnr:ecp5
-        docker push hdlc/nextpnr
+        docker push se0bi/hdlc-pkg:nextpnr-ice40
+        docker push se0bi/hdlc-pkg:nextpnr-ecp5
+        docker push se0bi/hdlc-nextpnr:ice40
+        docker push se0bi/hdlc-nextpnr:ecp5
+        docker push se0bi/hdlc-nextpnr
