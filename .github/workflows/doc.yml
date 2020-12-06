@@ -7,8 +7,6 @@ on:
       - '.github/workflows/doc.yml'
       - 'doc/**'
       - 'graph/**'
-  schedule:
-    - cron: '0 0 * * 4'
   repository_dispatch:
     types: [ doc ]
 

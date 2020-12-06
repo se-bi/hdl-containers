@@ -2,8 +2,6 @@ name: 'z3'
 
 on:
   push:
-  schedule:
-    - cron: '0 0 * * 5'
   repository_dispatch:
     types: [ z3 ]
 

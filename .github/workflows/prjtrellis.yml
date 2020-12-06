@@ -2,8 +2,6 @@ name: 'prjtrellis'
 
 on:
   push:
-  schedule:
-    - cron: '0 0 * * 5'
   repository_dispatch:
     types: [ prjtrellis ]
 
