@@ -1,4 +1,4 @@
-FROM hdlc/build:dev AS build-aptrequirements
+FROM se0bi/hdlc-build:dev AS build-aptrequirements
 
 ENV LDFLAGS "-Wl,--copy-dt-needed-entries"
 
