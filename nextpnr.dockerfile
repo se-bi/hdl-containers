@@ -31,7 +31,7 @@ RUN cd /tmp/nextpnr/build \
 #---
 
 FROM build-aptrequirements AS build-ecp5
-COPY --from=hdlc/pkg:prjtrellis /prjtrellis /
+COPY --from=se0bi/hdlc-pkg:prjtrellis /prjtrellis /
 
 RUN cd /tmp/nextpnr/build \
  && cmake .. \
@@ -45,7 +45,7 @@ RUN cd /tmp/nextpnr/build \
 #---
 
 FROM build-ice40 AS build-all
-COPY --from=hdlc/pkg:prjtrellis /prjtrellis /
+COPY --from=se0bi/hdlc-pkg:prjtrellis /prjtrellis /
 
 RUN cd /tmp/nextpnr/build \
  && cmake .. \

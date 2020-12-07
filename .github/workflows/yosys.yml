@@ -25,21 +25,21 @@ jobs:
 
     - name: Build images
       run: |
-        docker build -t hdlc/pkg:yosys --target=pkg - < yosys.dockerfile
-        docker build -t hdlc/yosys - < yosys.dockerfile
+        docker build -t se0bi/hdlc-pkg:yosys --target=pkg - < yosys.dockerfile
+        docker build -t se0bi/hdlc-yosys - < yosys.dockerfile
 
-    - name: TODO test hdlc/pkg:yosys
+    - name: TODO test se0bi/hdlc-pkg:yosys
       run: docker run --rm -v $(pwd):/wrk alpine /wrk/test/todo.sh
       #uses: docker://alpine
       #with:
       #  args: ./test/todo.sh
 
-    - run: docker run --rm -v $(pwd):/wrk hdlc/yosys /wrk/test/yosys.sh
-      #uses: docker://hdlc/yosys
+    - run: docker run --rm -v $(pwd):/wrk se0bi/hdlc-yosys /wrk/test/yosys.sh
+      #uses: docker://se0bi/hdlc-yosys
       #with:
       #  args: ./test/yosys.sh
 
     - name: Deploy to DockerHub
       run: |
-        docker push hdlc/pkg:yosys
-        docker push hdlc/yosys
+        docker push se0bi/hdlc-pkg:yosys
+        docker push se0bi/hdlc-yosys

@@ -1,4 +1,4 @@
-FROM hdlc/ghdl:yosys AS base
+FROM se0bi/hdlc-ghdl:yosys AS base
 
 RUN apt-get update -qq \
  && DEBIAN_FRONTEND=noninteractive apt-get -y install --no-install-recommends \
@@ -21,4 +21,4 @@ COPY --from=hdlc/pkg:icestorm /icestorm /
 FROM base AS ecp5
 
 COPY --from=se0bi/hdlc-pkg:nextpnr-ecp5 /nextpnr /
-COPY --from=hdlc/pkg:prjtrellis /prjtrellis /
+COPY --from=se0bi/hdlc-pkg:prjtrellis /prjtrellis /
