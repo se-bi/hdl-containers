@@ -8,3 +8,5 @@ echo "CC: $CC"
 echo "CXX: $CXX"
 
 ./smoke-tests/nextpnr-ecp5.sh
+
+nextpnr-ecp5 --version

@@ -8,3 +8,5 @@ echo "CC: $CC"
 echo "CXX: $CXX"
 
 ./smoke-tests/nextpnr-ice40.sh
+
+nextpnr-ice40 --version
