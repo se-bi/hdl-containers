@@ -12,7 +12,7 @@ RUN apt-get update -qq \
 FROM build-aptrequirements AS build-gitfetch
 
 RUN git clone https://github.com/YosysHQ/nextpnr.git /tmp/nextpnr \
- && mkdir /tmp/nextpnr/build/ \
+ && mkdir /tmp/nextpnr/build/
 
 #---
 
