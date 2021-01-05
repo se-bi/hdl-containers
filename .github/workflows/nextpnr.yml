@@ -34,12 +34,12 @@ jobs:
     - run: docker run --rm -v $(pwd):/wrk hdlc/nextpnr:ice40 /wrk/test/nextpnr--ice40.sh
       #uses: docker://hdlc/nextpnr:ice40
       #with:
-      #  args: ./test/nextpnr-ice40.sh
+      #  args: ./test/nextpnr--ice40.sh
 
     - run: docker run --rm -v $(pwd):/wrk hdlc/nextpnr:ecp5 /wrk/test/nextpnr--ecp5.sh
       #uses: docker://hdlc/nextpnr:ecp5
       #with:
-      #  args: ./test/nextpnr-ecp5.sh
+      #  args: ./test/nextpnr--ecp5.sh
 
     - run: docker run --rm -v $(pwd):/wrk hdlc/nextpnr /wrk/test/nextpnr.sh
       #uses: docker://hdlc/nextpnr

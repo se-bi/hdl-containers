@@ -29,14 +29,14 @@ jobs:
         docker build -t hdlc/impl:ecp5 --target=ecp5 - < impl.dockerfile
 
     - run: docker run --rm -v $(pwd):/wrk hdlc/impl:ecp5 /wrk/test/impl--ecp5.sh
-      #uses: docker://hdlc/impl
+      #uses: docker://hdlc/impl:ecp5
       #with:
-      #  args: ./test/impl.sh
+      #  args: ./test/impl--ecp5.sh
 
     - run: docker run --rm -v $(pwd):/wrk hdlc/impl:ice40 /wrk/test/impl--ice40.sh
-      #uses: docker://hdlc/impl
+      #uses: docker://hdlc/impl:ice40
       #with:
-      #  args: ./test/impl.sh
+      #  args: ./test/impl--ice40.sh
 
     - name: Deploy to DockerHub
       run: |
