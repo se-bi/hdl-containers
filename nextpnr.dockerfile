@@ -30,7 +30,7 @@ RUN cd /tmp/nextpnr/build \
 
 #---
 
-FROM build-aptrequirements AS build-ecp5
+FROM build-gitfetch AS build-ecp5
 COPY --from=se0bi/hdlc-pkg:prjtrellis /prjtrellis /
 
 RUN cd /tmp/nextpnr/build \
