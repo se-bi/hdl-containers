@@ -24,10 +24,11 @@ jobs:
     - name: Build images
       run: |
         docker build -t se0bi/hdlc-pkg:nextpnr-ice40 --target=pkg-ice40 - < nextpnr.dockerfile
-        docker build -t se0bi/hdlc-pkg:nextpnr-ecp5 --target=pkg-ecp5 - < nextpnr.dockerfile
-        docker build -t se0bi/hdlc-nextpnr:ice40 --target=ice40 - < nextpnr.dockerfile
-        docker build -t se0bi/hdlc-nextpnr:ecp5 --target=ecp5 - < nextpnr.dockerfile
-        docker build -t se0bi/hdlc-nextpnr - < nextpnr.dockerfile
+        docker build -t se0bi/hdlc-pkg:nextpnr-ecp5  --target=pkg-ecp5  - < nextpnr.dockerfile
+        docker build -t se0bi/hdlc-pkg:nextpnr-all   --target=pkg-all   - < nextpnr.dockerfile
+        docker build -t se0bi/hdlc-nextpnr:ice40     --target=ice40     - < nextpnr.dockerfile
+        docker build -t se0bi/hdlc-nextpnr:ecp5      --target=ecp5      - < nextpnr.dockerfile
+        docker build -t se0bi/hdlc-nextpnr           --target=all       - < nextpnr.dockerfile
 
     - run: docker run --rm -v $(pwd):/wrk se0bi/hdlc-nextpnr:ice40 /wrk/test/nextpnr--ice40.sh
       #uses: docker://hdlc/nextpnr:ice40
@@ -48,6 +49,7 @@ jobs:
       run: |
         docker push se0bi/hdlc-pkg:nextpnr-ice40
         docker push se0bi/hdlc-pkg:nextpnr-ecp5
+        docker push se0bi/hdlc-pkg:nextpnr
         docker push se0bi/hdlc-nextpnr:ice40
         docker push se0bi/hdlc-nextpnr:ecp5
         docker push se0bi/hdlc-nextpnr

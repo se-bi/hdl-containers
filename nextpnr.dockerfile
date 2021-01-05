@@ -91,3 +91,8 @@ COPY --from=build-ecp5 /opt/nextpnr /nextpnr
 
 FROM base AS all
 COPY --from=build-all /opt/nextpnr /
+
+#---
+
+FROM base AS pkg-all
+COPY --from=build-all /opt/nextpnr /nextpnr

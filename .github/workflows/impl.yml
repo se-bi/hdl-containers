@@ -23,8 +23,12 @@ jobs:
 
     - name: Build images
       run: |
-        docker build -t se0bi/hdlc-impl:ice40 --target=ice40 - < impl.dockerfile
-        docker build -t se0bi/hdlc-impl:ecp5 --target=ecp5 - < impl.dockerfile
+        docker build -t se0bi/hdlc-impl:ice40      --target=ice40      - < impl.dockerfile
+        docker build -t se0bi/hdlc-impl:ecp5       --target=ecp5       - < impl.dockerfile
+        docker build -t se0bi/hdlc-impl:pnr        --target=pnr        - < impl.dockerfile
+        docker build -t se0bi/hdlc-impl:icestorm   --target=icestorm   - < impl.dockerfile
+        docker build -t se0bi/hdlc-impl:prjtrellis --target=prjtrellis - < impl.dockerfile
+        docker build -t se0bi/hdlc-impl:latest     --target=latest     - < impl.dockerfile
 
     - run: docker run --rm -v $(pwd):/wrk se0bi/hdlc-impl:ecp5 /wrk/test/impl--ecp5.sh
       #uses: docker://hdlc/impl:ecp5
@@ -40,3 +44,7 @@ jobs:
       run: |
         docker push se0bi/hdlc-impl:ice40
         docker push se0bi/hdlc-impl:ecp5
+        docker push se0bi/hdlc-impl:pnr
+        docker push se0bi/hdlc-impl:icestorm
+        docker push se0bi/hdlc-impl:prjtrellis
+        docker push se0bi/hdlc-impl:latest
