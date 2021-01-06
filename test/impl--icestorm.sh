@@ -6,7 +6,5 @@ cd $(dirname "$0")
 
 ./ghdl.sh
 ./yosys.sh
-./nextpnr--ecp5.sh
 ./nextpnr--ice40.sh
-./prjtrellis.sh
 ./icestorm.sh
