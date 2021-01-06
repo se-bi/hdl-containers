@@ -40,22 +40,22 @@ jobs:
       #with:
       #  args: ./test/impl--ice40.sh
 
-    - run: docker run --rm -v $(pwd):/wrk se0bi/hdlc-impl:ice40 /wrk/test/impl--pnr.sh
+    - run: docker run --rm -v $(pwd):/wrk se0bi/hdlc-impl:pnr /wrk/test/impl--pnr.sh
       #uses: docker://hdlc/impl:pnr
       #with:
       #  args: ./test/impl--pnr.sh
 
-    - run: docker run --rm -v $(pwd):/wrk se0bi/hdlc-impl:ecp5 /wrk/test/impl--prjtrellis.sh
+    - run: docker run --rm -v $(pwd):/wrk se0bi/hdlc-impl:prjtrellis /wrk/test/impl--prjtrellis.sh
       #uses: docker://hdlc/impl:prjtrellis
       #with:
       #  args: ./test/impl--prjtrellis.sh
 
-    - run: docker run --rm -v $(pwd):/wrk se0bi/hdlc-impl:ice40 /wrk/test/impl--icestorm.sh
+    - run: docker run --rm -v $(pwd):/wrk se0bi/hdlc-impl:icestorm /wrk/test/impl--icestorm.sh
       #uses: docker://hdlc/impl:icestorm
       #with:
       #  args: ./test/impl--icestorm.sh
 
-    - run: docker run --rm -v $(pwd):/wrk se0bi/hdlc-impl:ice40 /wrk/test/impl.sh
+    - run: docker run --rm -v $(pwd):/wrk se0bi/hdlc-impl /wrk/test/impl.sh
       #uses: docker://hdlc/impl
       #with:
       #  args: ./test/impl.sh
@@ -67,4 +67,4 @@ jobs:
         docker push se0bi/hdlc-impl:pnr
         docker push se0bi/hdlc-impl:icestorm
         docker push se0bi/hdlc-impl:prjtrellis
-        docker push se0bi/hdlc-impl:latest
+        docker push se0bi/hdlc-impl

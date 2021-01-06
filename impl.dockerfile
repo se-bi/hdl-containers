@@ -41,7 +41,7 @@ COPY --from=se0bi/hdlc-pkg:prjtrellis /prjtrellis /
 
 #---
 
-FROM pnr AS latest
+FROM pnr
 
 COPY --from=hdlc/pkg:icestorm /iceprog /
 COPY --from=hdlc/pkg:icestorm /icestorm /
