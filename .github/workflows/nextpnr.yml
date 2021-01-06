@@ -49,7 +49,7 @@ jobs:
       run: |
         docker push se0bi/hdlc-pkg:nextpnr-ice40
         docker push se0bi/hdlc-pkg:nextpnr-ecp5
-        docker push se0bi/hdlc-pkg:nextpnr
+        docker push se0bi/hdlc-pkg:nextpnr-all
         docker push se0bi/hdlc-nextpnr:ice40
         docker push se0bi/hdlc-nextpnr:ecp5
         docker push se0bi/hdlc-nextpnr
