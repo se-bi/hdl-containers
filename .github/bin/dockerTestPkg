@@ -28,12 +28,12 @@ if [ -n "$2" ]; then
   _dir="$2"
 fi
 
-echo "::group::Build hdlc/tespkg:${_tag}"
-docker build -t hdlc/testpkg:"${_tag}" - <<-EOF
+echo "::group::Build se0bi/hdlc-tespkg:${_tag}"
+docker build -t se0bi/hdlc-testpkg:"${_tag}" - <<-EOF
 FROM alpine
 RUN apk add -U --no-cache file tree
-COPY --from=hdlc/pkg:${_tag} /${_dir} /
+COPY --from=se0bi/hdlc-pkg:${_tag} /${_dir} /
 EOF
 echo '::endgroup::'
 
-docker run --rm -v /$(pwd)://wrk hdlc/testpkg:"${_tag}" //wrk/test/"${_tag}".pkg.sh
+docker run --rm -v /$(pwd)://wrk se0bi/hdlc-testpkg:"${_tag}" //wrk/test/"${_tag}".pkg.sh

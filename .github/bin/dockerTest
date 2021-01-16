@@ -28,4 +28,4 @@ if [ -n "$2" ]; then
   _script="$2"
 fi
 
-docker run --rm -v /$(pwd)://wrk hdlc/"${_image}" //wrk/test/"${_script}".sh
+docker run --rm -v /$(pwd)://wrk se0bi/hdlc-"${_image}" //wrk/test/"${_script}".sh
