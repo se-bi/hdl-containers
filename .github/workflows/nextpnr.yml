@@ -65,35 +65,35 @@ jobs:
     - run: dockerTest nextpnr
 
     - name: Login to DockerHub
-      if: github.event_name != 'pull_request' && github.repository == 'hdl/containers'
+      if: github.event_name != 'pull_request' && github.repository == 'se-bi/hdl-containers'
       uses: docker/login-action@v1
       with:
         username: ${{ secrets.DOCKER_USER }}
         password: ${{ secrets.DOCKER_PASS }}
 
     - run: dockerPush pkg:nextpnr-ice40
-      if: github.event_name != 'pull_request' && github.repository == 'hdl/containers'
+      if: github.event_name != 'pull_request' && github.repository == 'se-bi/hdl-containers'
 
     - run: dockerPush nextpnr:ice40
-      if: github.event_name != 'pull_request' && github.repository == 'hdl/containers'
+      if: github.event_name != 'pull_request' && github.repository == 'se-bi/hdl-containers'
 
     - run: dockerPush nextpnr:icestorm
-      if: github.event_name != 'pull_request' && github.repository == 'hdl/containers'
+      if: github.event_name != 'pull_request' && github.repository == 'se-bi/hdl-containers'
 
     - run: dockerPush pkg:nextpnr-ecp5
-      if: github.event_name != 'pull_request' && github.repository == 'hdl/containers'
+      if: github.event_name != 'pull_request' && github.repository == 'se-bi/hdl-containers'
 
     - run: dockerPush nextpnr:ecp5
-      if: github.event_name != 'pull_request' && github.repository == 'hdl/containers'
+      if: github.event_name != 'pull_request' && github.repository == 'se-bi/hdl-containers'
 
     - run: dockerPush nextpnr:prjtrellis
-      if: github.event_name != 'pull_request' && github.repository == 'hdl/containers'
+      if: github.event_name != 'pull_request' && github.repository == 'se-bi/hdl-containers'
 
     - run: dockerPush pkg:nextpnr-generic
-      if: github.event_name != 'pull_request' && github.repository == 'hdl/containers'
+      if: github.event_name != 'pull_request' && github.repository == 'se-bi/hdl-containers'
 
     - run: dockerPush nextpnr:generic
-      if: github.event_name != 'pull_request' && github.repository == 'hdl/containers'
+      if: github.event_name != 'pull_request' && github.repository == 'se-bi/hdl-containers'
 
     - run: dockerPush nextpnr
-      if: github.event_name != 'pull_request' && github.repository == 'hdl/containers'
+      if: github.event_name != 'pull_request' && github.repository == 'se-bi/hdl-containers'
